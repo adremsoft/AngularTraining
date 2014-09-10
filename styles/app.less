@@ -1,0 +1,87 @@
+@highlight-color : #3299CC;
+@main-color : #000;
+
+.templates-btn {
+  float: right;
+  input[type="button"] {
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    color: #FFF;
+  }
+  .red-btn {
+    background-color: red;
+  }
+  .green-btn {
+    background-color: green;
+  }
+  .blue-btn {
+    background-color: blue;
+  }
+}
+
+.container {
+  font-family: sans-serif;
+
+  h1 {
+    color: @highlight-color;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .contact-item {
+    width: 20%;
+    min-width: 200px;
+    max-width: 400px;
+    padding: 20px;
+    margin: 3px;
+    background-color: #F9f9f9;
+    img {
+      display: block;
+      margin: 0 auto;
+      height: 48px;
+    }
+    .name {
+      text-align: center;
+    }
+    .about {
+      font-size: 12px;
+    }
+    .phone {
+      text-align: center;
+      color: cornflowerblue;
+      font-weight: bold;
+    }
+  }
+
+  }
+.red-template {
+
+  h1 {
+    color: red;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+  }
+
+}
+
+.green-template {
+
+}
+
+.blue-template {
+
+}
+
+
+
