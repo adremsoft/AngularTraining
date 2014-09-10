@@ -8,11 +8,11 @@ angular.module('filters.phone', [])
         "use strict";
 
         function decodePhoneNumber(input) {
-           return {
-               code: input.slice(1, 3),
-               operator: input.slice(3, 6),
-               number: input.slice(6, 12)
-           };
+            return {
+                code: input.slice(1, 3),
+                operator: input.slice(3, 6),
+                number: input.slice(6, 12)
+            };
         }
 
         return function (input) {

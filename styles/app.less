@@ -1,6 +1,13 @@
 @highlight-color : #3299CC;
 @main-color : #000;
 
+@light-red: #f08080;
+@light-green: #70dc70;
+
+body{
+  padding: 0 20px;
+}
+
 .templates-btn {
   float: right;
   input[type="button"] {
@@ -38,7 +45,6 @@
   .contact-item {
     width: 20%;
     min-width: 200px;
-    max-width: 400px;
     padding: 20px;
     margin: 3px;
     background-color: #F9f9f9;
@@ -49,6 +55,7 @@
     }
     .name {
       text-align: center;
+      font-weight: bold;
     }
     .about {
       font-size: 12px;
@@ -60,28 +67,56 @@
     }
   }
 
-  }
-.red-template {
+  .sort-filter-container {
+  /*  float: right;*/
+    p {
+      display: inline;
+      font-weight: bold;
+      &:last-of-type {
+        float: right;
+      }
+      label {
+        font-weight: normal;
+      }
 
+    }
+  }
+}
+
+.red-template {
   h1 {
     color: red;
   }
 
   .flex-container {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: space-between;
+    flex-flow: column nowrap;
+    width: 0;
+    margin: 0 auto;
   }
 
+  .contact-item {
+    min-height: 200px;
+    background-color: lighten(@light-red, 20%);
+    .phone {
+      color: darkred;
+    }
+  }
 }
 
 .green-template {
+  h1 {
+    color: green;
+  }
 
+  .flex-container {
+    justify-content: space-between;
+  }
+
+  .contact-item {
+    background-color: lighten(@light-green, 20%);
+    margin: 10px 10%;
+    .phone {
+      color: darkgreen;
+    }
+  }
 }
-
-.blue-template {
-
-}
-
-
-

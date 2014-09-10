@@ -14,22 +14,22 @@ angular.module('services.contacts', [])
         }, {
             picture: 'picture.png',
             name: 'Andrey',
-            phoneNumber: '+380242711971',
-            about: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            phoneNumber: '+480242711971',
+            about: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
         }, {
             picture: 'picture.png',
             name: 'Ihor',
-            phoneNumber: '+380342706871',
-            about: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            phoneNumber: '+355342706871',
+            about: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
         }, {
             picture: 'picture.png',
             name: 'Tom',
-            phoneNumber: '+380353211971',
-            about: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+            phoneNumber: '+388353211971',
+            about: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
         }, {
             picture: 'picture.png',
             name: 'Peter',
-            phoneNumber: '+38034751971',
+            phoneNumber: '+31234751971',
             about: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
         }];
 

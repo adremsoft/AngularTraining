@@ -11,18 +11,28 @@
 </head>
 <body ng-controller="ContactsController">
 
-
 <span class="templates-btn">
     <input type="button" value="Red template" ng-click="changeTemplate('red-template');" class="red-btn">
     <input type="button" value="Green template" ng-click="changeTemplate('green-template');" class="green-btn">
-    <input type="button" value="Blue template" ng-click="changeTemplate('blue-template');" class="blue-btn">
+    <input type="button" value="Default template" ng-click="changeTemplate('');" class="blue-btn">
 </span>
 
-<div class="container" ng-class="{{templateName}}">
+<div class="container {{templateName}}">
     <h1>Contacts List Manager</h1>
 
+    <div class="sort-filter-container">
+        <p>Enter text to filter results</p>
+        <input type="text" ng-model="filterText">
+
+        <p>Order by
+            <label><input type="radio" name="sort-by" ng-click="predicate = 'name'; reverse=false">Name</label>
+            <label><input type="radio" name="sort-by" ng-click="predicate = 'phoneNumber'; reverse=false">Phone
+                number</label>
+        </p>
+    </div>
+
     <div class="flex-container">
-        <div class="contact-item" ng-repeat="contact in contactList">
+        <div class="contact-item" ng-repeat="contact in contactList | filter:filterText | orderBy:predicate:reverse">
             <img ng-src="images/{{contact.picture}}" alt="Contact Picture">
 
             <p class="name">{{contact.name}}</p>
