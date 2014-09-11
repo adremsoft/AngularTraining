@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <title>Contacts Manager</title>
     <link rel="stylesheet" href="styles/app.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.0/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.0/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.0/angular-resource.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.0/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.0/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.0/angular-route.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.0/angular-resource.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-rc.0/angular-animate.min.js"></script>
 </head>
 <body ng-controller="ContactsController">
 
@@ -21,18 +21,28 @@
     <h1>Contacts List Manager</h1>
 
     <div class="sort-filter-container">
-        <p>Enter text to filter results</p>
-        <input type="text" ng-model="filterText">
+        <p>Search for</p>
+        <input ng-model="filterText">
+
+        <p>Search in
+            <select ng-model="filterType" ng-change="searchBy()">
+                <option></option>
+                <option value="$">everywhere</option>
+                <option value="name">names</option>
+                <option value="about">about stories</option>
+                <option value="phoneNumber">phone numbers</option>
+            </select>
+        </p>
 
         <p>Order by
             <label><input type="radio" name="sort-by" ng-click="predicate = 'name'; reverse=false">Name</label>
-            <label><input type="radio" name="sort-by" ng-click="predicate = 'phoneNumber'; reverse=false">Phone
-                number</label>
+            <label><input type="radio" name="sort-by" ng-click="predicate = 'phoneNumber'; reverse=false">Phonen number</label>
         </p>
     </div>
 
     <div class="flex-container">
-        <div class="contact-item" ng-repeat="contact in contactList | filter:filterText | orderBy:predicate:reverse">
+        <div class="contact-item"
+             ng-repeat="contact in contactList | filter:searchObject  | orderBy:predicate:reverse">
             <img ng-src="images/{{contact.picture}}" alt="Contact Picture">
 
             <p class="name">{{contact.name}}</p>

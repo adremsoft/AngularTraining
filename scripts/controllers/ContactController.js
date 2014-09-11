@@ -11,4 +11,9 @@ angular.module('controllers.contacts', [])
             $scope.templateName = "" + data + "";
         };
 
+        $scope.searchBy = function () {
+            $scope.searchObject = {};
+            $scope.searchObject[$scope.filterType] = $scope.filterText;
+        };
+
     });
