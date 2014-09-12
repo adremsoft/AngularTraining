@@ -38,7 +38,7 @@
              ng-repeat="contact in contactList | filter:filterText  | orderBy:predicate:reverse">
             <div ng-show="showContact">
                 <div class="edit-remove"><span class="glyphicon glyphicon-pencil"
-                                               ng-click="showContact=!showContact; showEdit=!showEdit"></span>&nbsp;
+                                               ng-click="showContact=false; showEdit=true"></span>&nbsp;
                     <span class="glyphicon glyphicon glyphicon-remove" ng-click="deleteSelectedContact(contact)"></span>
                 </div>
 
@@ -54,17 +54,14 @@
 
             <div ng-show="showEdit" class="edit-form">
                 <label for="change-name">Change name</label>
-                <input type="text" id="change-name" ng-model="changedName" class="form-control"
-                       placeholder="{{contact.name}}">
+                <input id="change-name" ng-model="contact.name" class="form-control">
                 <label for="change-description">Change information</label>
-                <textarea id="change-description" ng-model="changedInfo" class="form-control"
-                          placeholder="{{contact.about}}"></textarea>
+                <textarea id="change-description" ng-model="contact.about" class="form-control"></textarea>
                 <label for="change-phone">Change phone number</label>
-                <input type="text" id="change-phone" ng-model="changedPhone" class="form-control"
-                       placeholder="{{contact.phoneNumber | phone}}">
+                <input id="change-phone" ng-model="contact.phoneNumber" class="form-control">
 
-                <div><input type="button" value="Confirm" ng-click="changeContactData()" class="btn btn-default">
-                    <input type="button" value="Cancel" ng-click="showContact=!showContact; showEdit=!showEdit"
+                <div><input type="button" value="Confirm" ng-click="changeContactData(contact)" class="btn btn-default">
+                    <input type="button" value="Cancel" ng-click="showContact=true; showEdit=false"
                            class="btn btn-default"></div>
             </div>
         </div>

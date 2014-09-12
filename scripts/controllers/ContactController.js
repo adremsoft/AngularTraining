@@ -21,22 +21,9 @@ angular.module('controllers.contacts', ['ui.bootstrap'])
             $scope.changeContactState();
         };
 
-        $scope.changeContactData = function () {
-            console.log($scope.changedName); // always undefined!
-            /* var editedContact = {
-             picture: 'picture.png',
-             name: $scope.changedName,
-             about: $scope.changedInfo,
-             phoneNumber: "+23764823746"
-             } || {
-             picture: data.picture,
-             name: data.name,
-             about: data.about,
-             phoneNumber: data.phoneNumber
-             };*/
+        $scope.changeContactData = function (data) {
             $scope.deleteSelectedContact(data);
-            ContactData.addData(editedContact);
-            $scope.editSelectedContact();
+            ContactData.addData(data);
         };
 
         $scope.deleteSelectedContact = function (data) {
