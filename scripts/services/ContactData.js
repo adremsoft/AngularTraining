@@ -38,6 +38,12 @@ angular.module('services.contacts', [])
                 var def = $q.defer();
                 def.resolve(data);
                 return def.promise;
+            },
+            addData: function (input) {
+                data.push(input);
+            },
+            deleteData: function (index) {
+                data.splice(index, 1);
             }
         };
     });
