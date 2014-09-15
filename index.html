@@ -80,15 +80,18 @@
             <div ng-click="changeContactState()"><span class="glyphicon glyphicon-plus"></span></div>
         </div>
         <div class="contact-item add-contact-form" ng-show="showForm">
-            <label for="add-name">Enter name</label>
-            <input type="text" id="add-name" ng-model="newName" class="form-control">
-            <label for="add-description"> Add information</label>
-            <textarea id="add-description" ng-model="newInfo" class="form-control"></textarea>
-            <label for="add-phone">Enter phone number</label>
-            <input type="text" id="add-phone" ng-model="newPhone" class="form-control">
+            <form name="addContactForm" ng-submit="addNewContact()" novalidate>
+                <label for="add-name">Enter name</label>
+                <input type="text" id="add-name" ng-model="newName" class="form-control" required ng-pattern="/^[A-Z][a-z]+\s[A-Z][a-z]+$/">
+                <label for="add-description"> Add information</label>
+                <textarea id="add-description" ng-model="newInfo" class="form-control" required></textarea>
+                <label for="add-phone">Enter phone number</label>
+                <input type="text" id="add-phone" ng-model="newPhone" class="form-control" required
+                       ng-pattern="/^\+[0-9]{11}$/">
 
-            <div><input type="button" value="Confirm" ng-click="addNewContact()" class="btn btn-default">
-                <input type="button" value="Cancel" ng-click="changeContactState()" class="btn btn-default"></div>
+                <div><input type="submit" value="Confirm" class="btn btn-default" ng-disabled="addContactForm.$invalid">
+                    <input type="button" value="Cancel" ng-click="changeContactState()" class="btn btn-default"></div>
+            </form>
         </div>
     </div>
 </div>

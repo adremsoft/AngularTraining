@@ -36,7 +36,7 @@ body {
     color: @main-blue;
   }
 
-  textarea{
+  textarea {
     width: 100%;
     resize: none;
   }
@@ -88,10 +88,9 @@ body {
     }
   }
 
-  .show-contact.ng-hide-add, .show-contact.ng-hide-remove, .edit-form.ng-hide-add, .edit-form.ng-hide-remove, {
-    transition: all linear 0.3s;
-    /*   transform: rotateX(180deg);*/
-    opacity: 0;
+  .show-contact.ng-hide-add, .show-contact.ng-hide-remove, .edit-form.ng-hide-add, .edit-form.ng-hide-remove {
+    transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+    transform: rotateY(90deg);
   }
 
   .contact-item:hover {

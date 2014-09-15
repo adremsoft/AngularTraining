@@ -25,16 +25,15 @@ angular.module('controllers.contacts', ['ui.bootstrap', 'ngAnimate'])
         };
 
         $scope.changeContactData = function (oldData, newData) {
-            if (newData === undefined) {
-                newData = oldData;
-            } else {
+            if (newData !== undefined) {
                 newData.picture = 'picture.png';
                 newData.name = newData.name || oldData.name;
                 newData.about = newData.about || oldData.about;
                 newData.phoneNumber = newData.phoneNumber || oldData.phoneNumber;
+                $scope.deleteSelectedContact(oldData);
+                ContactData.addData(newData);
             }
-            $scope.deleteSelectedContact(oldData);
-            ContactData.addData(newData);
+
         };
 
         $scope.deleteSelectedContact = function (data) {

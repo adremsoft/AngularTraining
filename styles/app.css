@@ -77,9 +77,8 @@ body {
 .main-container .show-contact.ng-hide-remove,
 .main-container .edit-form.ng-hide-add,
 .main-container .edit-form.ng-hide-remove {
-  transition: all linear 0.3s;
-  /*   transform: rotateX(180deg);*/
-  opacity: 0;
+  transition: 600ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
+  transform: rotateY(90deg);
 }
 .main-container .contact-item:hover .edit-remove {
   visibility: visible;
