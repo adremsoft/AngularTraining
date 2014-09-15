@@ -3,6 +3,7 @@
 angular.module('myApp', [
         'controllers.contacts',
         'services.contacts',
-        'filters.phone'
+        'filters.phone',
+        'app.directives'
     ]
 );
