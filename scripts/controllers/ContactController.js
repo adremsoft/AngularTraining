@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module('controllers.contacts', ['ui.bootstrap', 'ngAnimate'])
+angular.module('controllers.contacts', ['ui.bootstrap'])
     .controller('ContactsController', function ($scope, ContactData) {
         "use strict";
 
@@ -22,8 +22,8 @@ angular.module('controllers.contacts', ['ui.bootstrap', 'ngAnimate'])
         };
 
         $scope.changeContactData = function (data) {
-            $scope.showContact = true;
-            $scope.showEdit = false;
+            $scope.deleteSelectedContact(data);
+            ContactData.addData(data);
         };
 
         $scope.deleteSelectedContact = function (data) {
