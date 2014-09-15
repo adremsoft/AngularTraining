@@ -26,6 +26,10 @@ body {
 .main-container h1 {
   color: #3299cc;
 }
+.main-container textarea {
+  width: 100%;
+  resize: none;
+}
 .main-container .flex-container {
   display: flex;
   flex-flow: row wrap;
@@ -69,6 +73,14 @@ body {
   cursor: pointer;
   color: #939393;
 }
+.main-container .show-contact.ng-hide-add,
+.main-container .show-contact.ng-hide-remove,
+.main-container .edit-form.ng-hide-add,
+.main-container .edit-form.ng-hide-remove {
+  transition: all linear 0.3s;
+  /*   transform: rotateX(180deg);*/
+  opacity: 0;
+}
 .main-container .contact-item:hover .edit-remove {
   visibility: visible;
 }
@@ -101,6 +113,15 @@ body {
 }
 .main-container .sort-filter-container p label {
   font-weight: normal;
+}
+.main-container .popover-inner {
+  padding: 10px;
+}
+.main-container .popover-inner .popover-content {
+  padding: 0;
+}
+.main-container .popover-inner .popover-buttons {
+  margin-top: 25px;
 }
 .red-template h1 {
   color: #f2473f;

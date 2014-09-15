@@ -36,6 +36,11 @@ body {
     color: @main-blue;
   }
 
+  textarea{
+    width: 100%;
+    resize: none;
+  }
+
   .flex-container {
     display: flex;
     flex-flow: row wrap;
@@ -81,7 +86,12 @@ body {
         color: darken(@light-grey, 40%);
       }
     }
+  }
 
+  .show-contact.ng-hide-add, .show-contact.ng-hide-remove, .edit-form.ng-hide-add, .edit-form.ng-hide-remove, {
+    transition: all linear 0.3s;
+    /*   transform: rotateX(180deg);*/
+    opacity: 0;
   }
 
   .contact-item:hover {
@@ -127,6 +137,16 @@ body {
         font-weight: normal;
       }
 
+    }
+  }
+
+  .popover-inner {
+    padding: 10px;
+    .popover-content {
+      padding: 0;
+    }
+    .popover-buttons {
+      margin-top: 25px;
     }
   }
 }

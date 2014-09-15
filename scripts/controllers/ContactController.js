@@ -1,11 +1,14 @@
 /*global angular*/
-angular.module('controllers.contacts', ['ui.bootstrap'])
+angular.module('controllers.contacts', ['ui.bootstrap', 'ngAnimate'])
     .controller('ContactsController', function ($scope, ContactData) {
         "use strict";
 
         $scope.changeContactState = function () {
             $scope.showBtn = !$scope.showBtn;
             $scope.showForm = !$scope.showForm;
+            $scope.newName = "";
+            $scope.newInfo = "";
+            $scope.newPhone = "";
         };
 
         $scope.addNewContact = function () {
@@ -21,9 +24,17 @@ angular.module('controllers.contacts', ['ui.bootstrap'])
             $scope.changeContactState();
         };
 
-        $scope.changeContactData = function (data) {
-            $scope.deleteSelectedContact(data);
-            ContactData.addData(data);
+        $scope.changeContactData = function (oldData, newData) {
+            if (newData === undefined) {
+                newData = oldData;
+            } else {
+                newData.picture = 'picture.png';
+                newData.name = newData.name || oldData.name;
+                newData.about = newData.about || oldData.about;
+                newData.phoneNumber = newData.phoneNumber || oldData.phoneNumber;
+            }
+            $scope.deleteSelectedContact(oldData);
+            ContactData.addData(newData);
         };
 
         $scope.deleteSelectedContact = function (data) {
