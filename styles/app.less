@@ -46,6 +46,7 @@ body {
 
   textarea {
     width: 100%;
+    min-height: 100px;
     resize: none;
   }
 
@@ -68,6 +69,7 @@ body {
     margin: 5px;
     background-color: @light-grey;
     box-shadow: 0px 0px 6px #d3d3d3;
+    position: relative;
     img {
       display: block;
       margin: 0 auto;
@@ -94,15 +96,17 @@ body {
         color: darken(@light-grey, 40%);
       }
     }
-    /*    input [class^='ng-invalid-'] {
-
-        }*/
   }
 
-  /*.show-contact.ng-hide-add, .show-contact.ng-hide-remove, .edit-form.ng-hide-add, .edit-form.ng-hide-remove {
-    transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transform: rotateY(90deg);
-  }*/
+  .contact-item.ng-enter, .contact-item.ng-leave {
+    /*To do here!*/
+
+  }
+
+  /*  .show-contact.ng-hide-add, .show-contact.ng-hide-remove, .edit-form.ng-hide-add, .edit-form.ng-hide-remove {
+     transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+     transform: rotateY(90deg);
+   }*/
 
   /*  .contact-item:hover {
       .edit-remove {
@@ -117,7 +121,12 @@ body {
       cursor: pointer;
       border-radius: 150px;
       background-color: darken(@light-grey, 20%);
-      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
       text-align: center;
       span.glyphicon-plus {
         top: 35%;

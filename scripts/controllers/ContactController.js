@@ -1,6 +1,6 @@
 /*global angular*/
 angular.module('controllers.contacts', ['ui.bootstrap', 'ngAnimate'])
-    .controller('ContactsController', function ($scope, ContactData) {
+    .controller('ContactsController', function ($scope, ContactData, $route) {
         "use strict";
 
         $scope.changeContactState = function () {
@@ -47,4 +47,5 @@ angular.module('controllers.contacts', ['ui.bootstrap', 'ngAnimate'])
 
         $scope.showBtn = true;
         $scope.showForm = false;
+
     });

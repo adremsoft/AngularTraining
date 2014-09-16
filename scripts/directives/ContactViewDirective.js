@@ -3,7 +3,7 @@
  */
 /* global angular, $ */
 angular.module('directives.contacts', []).directive(
-    'contactform', [function () {
+    'changecontactform', [function () {
         "use strict";
         return {
             restrict: 'A',
@@ -26,6 +26,7 @@ angular.module('directives.contacts', []).directive(
                 editContactForm.on('submit', function () {
                     showContact.removeClass('hidden');
                     editForm.addClass('hidden');
+                    editContactForm[0].reset();
                 });
             }
         };

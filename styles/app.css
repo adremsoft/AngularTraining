@@ -28,10 +28,10 @@ body {
 }
 .main-container {
   font-family: sans-serif;
-  /*.show-contact.ng-hide-add, .show-contact.ng-hide-remove, .edit-form.ng-hide-add, .edit-form.ng-hide-remove {
-    transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
-    transform: rotateY(90deg);
-  }*/
+  /*  .show-contact.ng-hide-add, .show-contact.ng-hide-remove, .edit-form.ng-hide-add, .edit-form.ng-hide-remove {
+     transition: 600ms cubic-bezier(0.250, 0.250, 0.750, 0.750) all;
+     transform: rotateY(90deg);
+   }*/
   /*  .contact-item:hover {
       .edit-remove {
         visibility: visible;
@@ -43,6 +43,7 @@ body {
 }
 .main-container textarea {
   width: 100%;
+  min-height: 100px;
   resize: none;
 }
 .main-container .flex-container {
@@ -61,9 +62,7 @@ body {
   margin: 5px;
   background-color: #f9f9f9;
   box-shadow: 0px 0px 6px #d3d3d3;
-  /*    input [class^='ng-invalid-'] {
-
-        }*/
+  position: relative;
 }
 .main-container .contact-item img {
   display: block;
@@ -91,13 +90,22 @@ body {
   cursor: pointer;
   color: #939393;
 }
+.main-container .contact-item.ng-enter,
+.main-container .contact-item.ng-leave {
+  /*To do here!*/
+}
 .main-container .add-contact-btn div {
   width: 150px;
   height: 150px;
   cursor: pointer;
   border-radius: 150px;
   background-color: #c6c6c6;
-  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   text-align: center;
 }
 .main-container .add-contact-btn div span.glyphicon-plus {
