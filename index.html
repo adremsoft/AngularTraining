@@ -45,7 +45,6 @@
                           confirm-btn="Delete"
                           on-action="deleteSelectedContact(contact)"></span>
                 </div>
-
                 <img ng-src="images/{{contact.picture}}" alt="Contact Picture" src="">
 
                 <p class="name">{{contact.name}}</p>
@@ -55,23 +54,24 @@
                 <p class="phone">{{contact.phoneNumber | phone}}</p>
             </div>
 
-
             <div ng-show="showEdit" class="edit-form">
-                <label for="change-name">Change name</label>
-                <input id="change-name" ng-model="changedContact.name" class="form-control"
-                       placeholder="{{contact.name}}">
-                <label for="change-description">Change information</label>
-                <textarea id="change-description" ng-model="changedContact.about" class="form-control"
-                          placeholder="{{contact.about}}"></textarea>
-                <label for="change-phone">Change phone number</label>
-                <input id="change-phone" ng-model="changedContact.phoneNumber" class="form-control"
-                       placeholder="{{contact.phoneNumber | phone}}">
+                <form name="editContactForm"
+                      ng-submit="editContactForm.$valid && changeContactData(contact, changedContact); showContact=true; showEdit=false;"
+                      novalidate>
+                    <label for="change-name">Change name</label>
+                    <input id="change-name" ng-model="changedContact.name" class="form-control"
+                           placeholder="{{contact.name}}" ng-pattern="/^[A-Z][a-z]+\s[A-Z][a-z]+$/">
+                    <label for="change-description">Change information</label>
+                    <textarea id="change-description" ng-model="changedContact.about" class="form-control"
+                              placeholder="{{contact.about}}"></textarea>
+                    <label for="change-phone">Change phone number</label>
+                    <input id="change-phone" ng-model="changedContact.phoneNumber" class="form-control"
+                           placeholder="{{contact.phoneNumber}}" ng-pattern="/^\+[0-9]{11}$/">
 
-                <div><input type="button" value="Confirm"
-                            ng-click="changeContactData(contact, changedContact); showContact=true; showEdit=false"
-                            class="btn btn-default">
-                    <input type="button" value="Cancel" ng-click="showContact=true; showEdit=false"
-                           class="btn btn-default"></div>
+                    <div><input type="submit" value="Confirm" class="btn btn-default">
+                        <input type="button" value="Cancel" ng-click="showContact=true; showEdit=false"
+                               class="btn btn-default"></div>
+                </form>
             </div>
         </div>
 
@@ -82,7 +82,8 @@
         <div class="contact-item add-contact-form" ng-show="showForm">
             <form name="addContactForm" ng-submit="addNewContact()" novalidate>
                 <label for="add-name">Enter name</label>
-                <input type="text" id="add-name" ng-model="newName" class="form-control" required ng-pattern="/^[A-Z][a-z]+\s[A-Z][a-z]+$/">
+                <input type="text" id="add-name" ng-model="newName" class="form-control" required
+                       ng-pattern="/^[A-Z][a-z]+\s[A-Z][a-z]+$/">
                 <label for="add-description"> Add information</label>
                 <textarea id="add-description" ng-model="newInfo" class="form-control" required></textarea>
                 <label for="add-phone">Enter phone number</label>

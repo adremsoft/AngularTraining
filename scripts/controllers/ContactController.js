@@ -6,9 +6,7 @@ angular.module('controllers.contacts', ['ui.bootstrap', 'ngAnimate'])
         $scope.changeContactState = function () {
             $scope.showBtn = !$scope.showBtn;
             $scope.showForm = !$scope.showForm;
-            $scope.newName = "";
-            $scope.newInfo = "";
-            $scope.newPhone = "";
+            $scope.clearForm();
         };
 
         $scope.addNewContact = function () {
@@ -18,9 +16,7 @@ angular.module('controllers.contacts', ['ui.bootstrap', 'ngAnimate'])
                 about: $scope.newInfo,
                 phoneNumber: $scope.newPhone.replace(/\s+/g, '').substring(0, 12)
             });
-            $scope.newName = "";
-            $scope.newInfo = "";
-            $scope.newPhone = "";
+            $scope.clearForm();
             $scope.changeContactState();
         };
 
@@ -33,11 +29,16 @@ angular.module('controllers.contacts', ['ui.bootstrap', 'ngAnimate'])
                 $scope.deleteSelectedContact(oldData);
                 ContactData.addData(newData);
             }
-
         };
 
         $scope.deleteSelectedContact = function (data) {
             ContactData.deleteData($scope.contactList.indexOf(data));
+        };
+
+        $scope.clearForm = function () {
+            $scope.newName = "";
+            $scope.newInfo = "";
+            $scope.newPhone = "";
         };
 
         ContactData.getData().then(function (data) {

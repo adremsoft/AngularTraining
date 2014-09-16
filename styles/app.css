@@ -22,6 +22,11 @@ body {
 }
 .main-container {
   font-family: sans-serif;
+  /*  .contact-item:hover {
+    .edit-remove {
+      visibility: visible;
+    }
+  }*/
 }
 .main-container h1 {
   color: #3299cc;
@@ -67,7 +72,7 @@ body {
 }
 .main-container .contact-item .edit-remove {
   text-align: right;
-  visibility: hidden;
+  /*      visibility: hidden;*/
 }
 .main-container .contact-item .edit-remove span {
   cursor: pointer;
@@ -79,9 +84,6 @@ body {
 .main-container .edit-form.ng-hide-remove {
   transition: 600ms cubic-bezier(0.25, 0.25, 0.75, 0.75) all;
   transform: rotateY(90deg);
-}
-.main-container .contact-item:hover .edit-remove {
-  visibility: visible;
 }
 .main-container .add-contact-btn div {
   width: 150px;
