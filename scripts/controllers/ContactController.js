@@ -47,6 +47,4 @@ angular.module('controllers.contacts', ['ui.bootstrap', 'ngAnimate'])
 
         $scope.showBtn = true;
         $scope.showForm = false;
-        $scope.showContact = true;
-        $scope.showEdit = false;
     });

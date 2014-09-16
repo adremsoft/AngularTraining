@@ -27,8 +27,8 @@
         <p>Search for</p>
         <input ng-model="filterText">
 
-        <p>Order by
-            <label><input type="radio" name="sort-by" ng-click="predicate = 'name'; reverse=false">Name</label>
+        <p>Order by&nbsp;
+            <label><input type="radio" name="sort-by" ng-click="predicate = 'name'; reverse=false">Name&nbsp;</label>
             <label><input type="radio" name="sort-by" ng-click="predicate = 'phoneNumber'; reverse=false">Phone
                 number</label>
         </p>
@@ -36,10 +36,9 @@
 
     <div class="flex-container">
         <div class="contact-item"
-             ng-repeat="contact in contactList | filter:filterText  | orderBy:predicate:reverse">
-            <div ng-show="showContact" class="show-contact">
-                <div class="edit-remove"><span class="glyphicon glyphicon-pencil"
-                                               ng-click="showContact=false; showEdit=true"></span>&nbsp;
+             ng-repeat="contact in contactList | filter:filterText  | orderBy:predicate:reverse" contactform>
+            <div class="show-contact">
+                <div class="edit-remove"><span class="glyphicon glyphicon-pencil edit-btn"></span>&nbsp;
                     <span class="glyphicon glyphicon glyphicon-remove" confirm-popup="Do you really want to delete?"
                           confirm-btn-type="btn-danger"
                           confirm-btn="Delete"
@@ -54,23 +53,24 @@
                 <p class="phone">{{contact.phoneNumber | phone}}</p>
             </div>
 
-            <div ng-show="showEdit" class="edit-form">
-                <form name="editContactForm"
-                      ng-submit="editContactForm.$valid && changeContactData(contact, changedContact); showContact=true; showEdit=false;"
+            <div class="edit-form hidden">
+                <form id="editContactForm" name="editContactForm"
+                      ng-submit="editContactForm.$valid && changeContactData(contact, changedContact)"
                       novalidate>
                     <label for="change-name">Change name</label>
                     <input id="change-name" ng-model="changedContact.name" class="form-control"
                            placeholder="{{contact.name}}" ng-pattern="/^[A-Z][a-z]+\s[A-Z][a-z]+$/">
+                    <span class="help-block">Two words each one from the capital letter</span>
                     <label for="change-description">Change information</label>
                     <textarea id="change-description" ng-model="changedContact.about" class="form-control"
                               placeholder="{{contact.about}}"></textarea>
                     <label for="change-phone">Change phone number</label>
                     <input id="change-phone" ng-model="changedContact.phoneNumber" class="form-control"
                            placeholder="{{contact.phoneNumber}}" ng-pattern="/^\+[0-9]{11}$/">
+                    <span class="help-block">Must contain + and eleven numbers</span>
 
                     <div><input type="submit" value="Confirm" class="btn btn-default">
-                        <input type="button" value="Cancel" ng-click="showContact=true; showEdit=false"
-                               class="btn btn-default"></div>
+                        <input type="button" value="Cancel" class="btn btn-default cancel-btn"></div>
                 </form>
             </div>
         </div>
@@ -84,11 +84,14 @@
                 <label for="add-name">Enter name</label>
                 <input type="text" id="add-name" ng-model="newName" class="form-control" required
                        ng-pattern="/^[A-Z][a-z]+\s[A-Z][a-z]+$/">
+                <span class="help-block">Required, must contain two words each one from the capital letter</span>
                 <label for="add-description"> Add information</label>
                 <textarea id="add-description" ng-model="newInfo" class="form-control" required></textarea>
+                <span class="help-block">Required</span>
                 <label for="add-phone">Enter phone number</label>
                 <input type="text" id="add-phone" ng-model="newPhone" class="form-control" required
                        ng-pattern="/^\+[0-9]{11}$/">
+                <span class="help-block">Required, must contain + and eleven numbers after</span>
 
                 <div><input type="submit" value="Confirm" class="btn btn-default" ng-disabled="addContactForm.$invalid">
                     <input type="button" value="Cancel" ng-click="changeContactState()" class="btn btn-default"></div>
@@ -103,6 +106,7 @@
 <script src="scripts/services/ContactData.js"></script>
 <script src="scripts/filters/phoneFilter.js"></script>
 <script src="scripts/directives/confirm-popup-directive.js"></script>
+<script src="scripts/directives/ContactViewDirective.js"></script>
 <script src="lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
 </body>
 </html>

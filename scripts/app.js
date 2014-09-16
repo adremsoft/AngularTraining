@@ -4,6 +4,7 @@ angular.module('myApp', [
         'controllers.contacts',
         'services.contacts',
         'filters.phone',
-        'app.directives'
+        'app.directives',
+        'directives.contacts'
     ]
 );
